@@ -5,124 +5,128 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Открытка</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background: #0C0C0C;
-            font-family: system-ui, -apple-system, sans-serif;
-            padding: 20px;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* Сетка — 2 колонки */
-        .grid {
-            max-width: 500px;
-            width: 100%;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-        }
-
-        /* Базовый стиль для всех блоков */
-        .item {
-            background: white;
-            border-radius: 20px;
-            padding: 24px 16px;
-            text-align: center;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-
-        /* Квадраты (по умолчанию) — квадрат через aspect-ratio */
-        .square {
-            aspect-ratio: 1 / 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* Прямоугольник на всю ширину (2 колонки) */
-        .full-width {
-            grid-column: span 2;
-        }
-
-        /* Пример оформления (настройте под себя) */
-        .item h3 {
-            font-size: 1.1rem;
-            margin-bottom: 8px;
-            color: #333;
-        }
-
-        .item p {
-            font-size: 0.85rem;
-            color: #666;
-        }
-
-        .icon {
-            font-size: 2rem;
-            margin-bottom: 12px;
-        }
-
-        /* Разные фоны для наглядности (уберите или замените) */
-        .item:nth-child(1) { background: #ffe8e8; }
-        .item:nth-child(2) { background: #e8f0ff; }
-        .item:nth-child(3) { background: #e8ffe8; }
-        .item:nth-child(4) { background: #fff0e8; }
-        .item:nth-child(5) { background: #f0e8ff; }
+		
+		/* Сброс стандартных отступов */
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		
+		/* Настройки фона */
+		body {
+			background: #161616;     /* Цвет */
+			font-family: system-ui, -apple-system, sans-serif;
+			padding: 0px;     /* Внутернние отступы от краев экрана */
+			min-height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		
+		/* Сетка */
+		.grid {
+			max-width: 500px;
+			width: 100%;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 0px;     /* Расстояние между блоками */
+		}
+		
+		/* Стиль для всех блоков */
+		.item {
+			position: relative;
+			background: white;
+			border-radius: 50px;     /* Скругление краев */
+		}
+		
+		/* Квадрат */
+		.square {
+			aspect-ratio: 1 / 1;
+		}
+		
+		/* Прямоугольник */
+		.full-width {
+			grid-column: span 2;
+			aspect-ratio: 2 / 1;
+		}
+		
+		.custom-block {
+			position: relative;
+		}
+		
+		.abs {
+			position: absolute;
+		}
+		
+		/* Оформление текста внутри блоков */
+		.item h3 {
+			font-size: 3.2rem;     /* Размер шрифта */
+			line-height: 1;
+			color: #333;
+		}
+		
+		.item p {
+			font-size: 1.3rem;
+			line-height: 1;
+			color: #666;
+		}
+		
+		.icon {
+			font-size: 2rem;
+		}
+		
+		/* Настройка текста */
+		.item .text-1 {
+			color: #FFFFFF;
+		}
+		
+		.item .text-2 {
+			color:#000000;
+		}
+		
+		.item .text-3 {
+			color: #000000;
+		}
+		
+		/* Цвета блоков */
+		.block-1 {
+			background: #800B0E;
+		}
+		
+		.block-2 {
+			background: #ff6b6b;
+		}
+		
+		.block-3{
+			background: #ff6b6b;
+		}
+		
     </style>
 </head>
 <body>
     <div class="grid">
-        
-        <!-- Квадрат 1 -->
-        <div class="item square">
-            <div class="icon">📅</div>
-            <h3>Дата</h3>
-            <p>15 июня 2026</p>
-        </div>
-        
-        <!-- Квадрат 2 -->
-        <div class="item square">
-            <div class="icon">⏰</div>
-            <h3>Время</h3>
-            <p>18:00</p>
-        </div>
-        
-        <!-- Прямоугольник на всю ширину -->
-        <div class="item full-width">
-            <div class="icon">📍</div>
-            <h3>Место</h3>
-            <p>Ресторан Рётэй, Японский сад, парк Галицкого</p>
-        </div>
-        
-        <!-- Квадрат 3 -->
-        <div class="item square">
-            <div class="icon">🍣</div>
-            <h3>Дресс-код</h3>
-            <p>Smart casual</p>
-        </div>
-        
-        <!-- Квадрат 4 -->
-        <div class="item square">
-            <div class="icon">🎁</div>
-            <h3>Сюрприз</h3>
-            <p>Будет!</p>
-        </div>
-        
-        <!-- Ещё один прямоугольник (опционально) -->
-        <div class="item full-width">
-            <div class="icon">💝</div>
-            <h3>От меня</h3>
-            <p>Твой подарок — этот вечер. Жду тебя!</p>
-        </div>
-        
-    </div>
+		
+		<div class="item square block-1">
+			<h3 class="abs text-1" style="left: 25px; top: 25px;">10 MAY</h3>
+			<p class="abs text-1" style="left: 25px; top: 180px;">15 июня 2026</p>
+		</div>
+		
+		<div class="item square">
+			<h3 class="abs" style="left: 25px; top: 25px;">ВРЕМЯ</h3>
+			<p class="abs" style="left: 25px; top: 100px;">Приглашение <br> на свидание</p>
+		</div>
+		
+		<div class="item full-width">
+			<div>
+				<h3 class="abs" style="left: 25px; top: 25px;">МАСТЕР-КЛАСС</h3>
+				<p class="abs" style="left: 25px; top: 85px;">По свечеварению для двоих</p>
+			</div>
+			<div>
+				<p class="abs" style="left: 200px; top: 180px;">Парк Галицкого</p>
+			</div>
+		</div>
+		
+	</div>
 </body>
 </html>
