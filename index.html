@@ -157,8 +157,8 @@
             display: block;
             width: 100%;
 			aspect-ratio: 5 / 1;
-            background: #800B0E;
-            color: white;
+            background: #FFFFFF;
+            color: black;
             text-align: center;
             font-family: system-ui, -apple-system, sans-serif;
             font-size: 5cqw;
@@ -177,45 +177,6 @@
 <body>
     <div class="grid">
 		
-		<div class="item full-width block-2">
-			<div>
-				<h3 class="abs" style="left: 8%; top: 10%;">RYOTEI</h3>
-				<p class="abs" style="left: 8.5%; top: 33%;">Ресторан японской кухни</p>
-			</div>
-			<div>
-				<p class="abs" style="right: 10%; bottom: 10%;">Парк Галицкого</p>
-			</div>
-		</div>
-		
-		<div class="item square block-2">
-			<h3 class="abs" style="left: 10%; top: 10%;">10 JUNE</h3>
-			<p class="abs" style="left: 12%; top: 33%;">Среда</p>
-		</div>
-		
-		<div class="item square block-1">
-			<h3 class="abs" style="left: 10%; top: 10%;">DATE</h3>
-			<p class="abs" style="left: 12%; top: 33%;">Приглашение <br> на свидание</p>
-		</div>
-		
-		<div class="item full-width block-1">
-			<img class="image-full" src="https://resize.tripster.ru/VdtvGoQ9lHjBrtALIIz-FUggwrM=/fit-in/1600x900/filters:no_upscale()/https://cdn.tripster.ru/photos/d1a48164-dca7-4f80-a727-cdd52fb9837d.jpg" alt="Описание">
-		</div>
-		
-		<div class="item square block-1">
-			<h3 class="abs" style="left: 10%; top: 10%;">МЕСТО</h3>
-			<p class="abs" style="left: 12%; top: 33%;">ВСТРЕЧИ</p>
-		</div>
-		
-		<div class="item square block-2">
-			<h3 class="abs" style="left: 10%; top: 10%;">ЛЕНТА</h3>
-			<p class="abs" style="left: 12%; top: 33%;">МАГАЗИН</p>
-			<p class="abs" style="left: 12%; bottom: 10%;"></p>
-		</div>
-		
-		<div class="item full-width music-widget">
-			<iframe frameborder="0" allow="clipboard-write" style="border:none;width:100%;height:100%;" width="100%" height="240" src="https://music.yandex.ru/iframe/album/3796696/track/31328206">Слушайте <a href="https://music.yandex.ru/album/3796696/track/31328206?utm_source=web&utm_medium=copy_link">Хочется</a> — <a href="https://music.yandex.ru/artist/159009">Градусы</a> на Яндекс Музыке</iframe>
-		</div>
-		
 		<div class="button-container">
             <button class="calendar-btn" id="addToCalendarBtn">
                 Добавить в календарь
@@ -227,7 +188,7 @@
 <script>
 
     document.getElementById('addToCalendarBtn').addEventListener('click', function() {
-        const url = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent('Свидание')}&details=${encodeURIComponent('Приглашаю в ресторан Ryotei в Парке Галицкого')}&dates=20260610T180000/20260610T210000&location=${encodeURIComponent('Парк Галицкого, Краснодар')}`;
+        const url = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent('Привет')}&details=${encodeURIComponent('А ты красотка')}&dates=20260610T180000/20260610T210000&location=${encodeURIComponent('Краснодар')}`;
         window.open(url, '_blank');
     });
 	
