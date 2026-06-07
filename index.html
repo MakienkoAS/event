@@ -17,9 +17,9 @@
 		
 		/* Настройки фона */
 		body {
-			background: #161616;     /* Цвет */
+			background: #161616;
 			font-family: system-ui, -apple-system, sans-serif;
-			padding: 0px;     /* Внутернние отступы от краев экрана */
+			padding: 0px;
 			min-height: 100vh;
 			display: flex;
 			justify-content: center;
@@ -32,7 +32,7 @@
 			width: 100%;
 			display: grid;
 			grid-template-columns: 1fr 1fr;
-			gap: 0px;     /* Расстояние между блоками */
+			gap: 0px;
 		}
 		
 		/* Стиль для всех блоков */
@@ -44,7 +44,7 @@
 		/* Квадрат */
 		.square {
 			aspect-ratio: 1 / 1;
-			border-radius: 20%;     /* Скругление краев */
+			border-radius: 20%;
 			container-type: inline-size;
 			container-name: square;
 		}
@@ -58,10 +58,6 @@
 			container-name: wide;
 		}
 		
-		.custom-block {
-			position: relative;
-		}
-		
 		.abs {
 			position: absolute;
 		}
@@ -69,65 +65,85 @@
 		/* Оформление текста внутри квадратов */
 		@container square (min-width: 0px) {
 			.item h3 {
-				font-size: 20cqw;     /* Размер шрифта */
+				font-size: 20cqw;
+				font-weight: 500;
 				line-height: 1;
-				color: #333;
 			}
 			
 			.item p {
 				font-size: 8cqw;
+				font-weight: 500;
 				line-height: 1;
-				color: #666;
-			}
-			
-			.icon {
-				font-size: 10cqw;
 			}
 		}
 		
 		/* Оформление текста внутри прямоугольников */
 		@container wide (min-width: 0px) {
 			.item h3 {
-				font-size: 10cqw;     /* Размер шрифта */
+				font-size: 10cqw;
+				font-weight: 500;
 				line-height: 1;
-				color: #333;
 			}
 			
 			.item p {
 				font-size: 4cqw;
+				font-weight: 500;
 				line-height: 1;
-				color: #666;
-			}
-			
-			.icon {
-				font-size: 5cqw;
 			}
 		}
 		
-		/* Цвет текста */
-		.item .text-1 {
-			color: #FFFFFF;
+		/* Картинка внутри квадрата */
+		.image-square {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			border-radius: 20%;
+			display: block;
 		}
 		
-		.item .text-2 {
-			color:#000000;
-		}
-		
-		.item .text-3 {
-			color: #000000;
+		/* Картинка внутри пустого прямоугольника */
+		.image-full {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			border-radius: 10%/20%;
+			display: block;
 		}
 		
 		/* Цвета блоков */
 		.block-1 {
-			background: #800B0E;
+			background: #FFFFFF;
+		}
+		
+		.block-1 h3,
+		.block-1 p {
+			color: #000000;
 		}
 		
 		.block-2 {
-			background: #ff6b6b;
+			background: #800B0E;
+		}
+		
+		.block-2 h3,
+		.block-2 p {
+			color: #FFFFFF;
 		}
 		
 		.block-3{
-			background: #ff6b6b;
+			background: #FFFFFF;
+		}
+		
+		.block-3 h3,
+		.block-3 p {
+			color: #000000;
+		}
+		
+		/* Блок музыки */
+		.music-widget {
+			background: #2a2a2a;
+			position: relative;
+			border-radius: 10%/20%;
+			overflow: hidden;
 		}
 		
 		/* Контейнер кнопки внутри сетки */
@@ -136,8 +152,8 @@
             margin-top: 0;
             width: 100%;
         }
-        
-        /* Кнопка */
+		
+		/* Кнопка */
         .calendar-btn {
             display: block;
             width: 100%;
@@ -157,37 +173,39 @@
             background: #a00f13;
         }
 		
-		/* Блок музыки */
-		.music-widget {
-			background: #2a2a2a;
-			position: relative;
-			border-radius: 10%/20%;
-			overflow: hidden;
-		}
-		
     </style>
 </head>
 <body>
     <div class="grid">
 		
-		<div class="item square block-1">
-			<h3 class="abs text-1" style="left: 10%; top: 10%;">10 MAY</h3>
-			<p class="abs text-1" style="left: 12%; bottom: 10%;">15 июня 2026</p>
-		</div>
-		
-		<div class="item square">
-			<h3 class="abs" style="left: 10%; top: 10%;">ВРЕМЯ</h3>
-			<p class="abs" style="left: 12%; bottom: 10%;">Приглашение <br> на свидание</p>
-		</div>
-		
-		<div class="item full-width">
+		<div class="item full-width block-2">
 			<div>
-				<h3 class="abs" style="left: 8%; top: 10%;">МАСТЕР-КЛАСС</h3>
-				<p class="abs" style="left: 8.5%; top: 33%;">По свечеварению для двоих</p>
+				<h3 class="abs" style="left: 8%; top: 10%;">RYOTEI</h3>
+				<p class="abs" style="left: 8.5%; top: 33%;">Ресторан японской кухни</p>
 			</div>
 			<div>
 				<p class="abs" style="right: 10%; bottom: 10%;">Парк Галицкого</p>
 			</div>
+		</div>
+		
+		<div class="item square block-2">
+			<h3 class="abs" style="left: 10%; top: 10%;">10 JUNE</h3>
+			<p class="abs" style="left: 12%; top: 33%;">Среда</p>
+		</div>
+		
+		<div class="item square block-1">
+			<h3 class="abs" style="left: 10%; top: 10%;">DATE</h3>
+			<p class="abs" style="left: 12%; top: 33%;">Приглашение <br> на свидание</p>
+		</div>
+		
+		<div class="item full-width block-1">
+			<img class="image-full" src="https://resize.tripster.ru/VdtvGoQ9lHjBrtALIIz-FUggwrM=/fit-in/1600x900/filters:no_upscale()/https://cdn.tripster.ru/photos/d1a48164-dca7-4f80-a727-cdd52fb9837d.jpg" alt="Описание">
+		</div>
+		
+		<div class="item square block-1">
+		</div>
+		
+		<div class="item square block-2">
 		</div>
 		
 		<div class="item full-width music-widget">
