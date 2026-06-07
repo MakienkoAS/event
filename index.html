@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Открытка</title>
+	<script src="https://cdn.jsdelivr.net/npm/add-to-calendar-button@2" async defer></script>
     <style>
 		
 		/* Сброс стандартных отступов */
@@ -11,6 +12,7 @@
 			margin: 0;
 			padding: 0;
 			box-sizing: border-box;
+			-webkit-text-size-adjust: 100%;
 		}
 		
 		/* Настройки фона */
@@ -37,18 +39,23 @@
 		.item {
 			position: relative;
 			background: white;
-			border-radius: 50px;     /* Скругление краев */
 		}
 		
 		/* Квадрат */
 		.square {
 			aspect-ratio: 1 / 1;
+			border-radius: 24%;     /* Скругление краев */
+			container-type: inline-size;
+			container-name: square;
 		}
 		
 		/* Прямоугольник */
 		.full-width {
 			grid-column: span 2;
 			aspect-ratio: 2 / 1;
+			border-radius: 12%/24%;
+			container-type: inline-size;
+			container-name: wide;
 		}
 		
 		.custom-block {
@@ -59,24 +66,45 @@
 			position: absolute;
 		}
 		
-		/* Оформление текста внутри блоков */
-		.item h3 {
-			font-size: 3.2rem;     /* Размер шрифта */
-			line-height: 1;
-			color: #333;
+		/* Оформление текста внутри квадратов */
+		@container square (min-width: 0px) {
+			.item h3 {
+				font-size: 20cqw;     /* Размер шрифта */
+				line-height: 1;
+				color: #333;
+			}
+			
+			.item p {
+				font-size: 8cqw;
+				line-height: 1;
+				color: #666;
+			}
+			
+			.icon {
+				font-size: 10cqw;
+			}
 		}
 		
-		.item p {
-			font-size: 1.3rem;
-			line-height: 1;
-			color: #666;
+		/* Оформление текста внутри прямоугольников */
+		@container wide (min-width: 0px) {
+			.item h3 {
+				font-size: 10cqw;     /* Размер шрифта */
+				line-height: 1;
+				color: #333;
+			}
+			
+			.item p {
+				font-size: 4cqw;
+				line-height: 1;
+				color: #666;
+			}
+			
+			.icon {
+				font-size: 5cqw;
+			}
 		}
 		
-		.icon {
-			font-size: 2rem;
-		}
-		
-		/* Настройка текста */
+		/* Цвет текста */
 		.item .text-1 {
 			color: #FFFFFF;
 		}
@@ -102,29 +130,66 @@
 			background: #ff6b6b;
 		}
 		
+		/* Блок для кнопки — добавляем отступы и центрирование */
+		.button-container {
+			grid-column: span 2;  /* Растягиваем на всю ширину сетки */
+			margin-top: 20px;      /* Отступ сверху */
+			display: flex;
+			justify-content: center;
+		}
+		
+		/* Настройка внешнего вида кнопки */
+		add-to-calendar-button {
+			--btn-background: #800B0E;        /* цвет фона (как у первого блока) */
+			--btn-background-hover: #a00f13;   /* цвет при наведении */
+			--btn-text: white;                 /* цвет текста */
+			--btn-border-radius: 50px;         /* скругление углов */
+			--btn-padding: 15px 30px;          /* внутренние отступы */
+			--btn-font-size: 1rem;             /* размер шрифта */
+			--btn-font-weight: 500;            /* насыщенность шрифта */
+		}
+		
     </style>
 </head>
 <body>
     <div class="grid">
 		
 		<div class="item square block-1">
-			<h3 class="abs text-1" style="left: 25px; top: 25px;">10 MAY</h3>
-			<p class="abs text-1" style="left: 25px; top: 180px;">15 июня 2026</p>
+			<h3 class="abs text-1" style="left: 10%; top: 10%;">10 MAY</h3>
+			<p class="abs text-1" style="left: 10%; bottom: 10%;">15 июня 2026</p>
 		</div>
 		
 		<div class="item square">
-			<h3 class="abs" style="left: 25px; top: 25px;">ВРЕМЯ</h3>
-			<p class="abs" style="left: 25px; top: 100px;">Приглашение <br> на свидание</p>
+			<h3 class="abs" style="left: 10%; top: 10%;">ВРЕМЯ</h3>
+			<p class="abs" style="left: 10%; bottom: 10%;">Приглашение <br> на свидание</p>
 		</div>
 		
 		<div class="item full-width">
 			<div>
-				<h3 class="abs" style="left: 25px; top: 25px;">МАСТЕР-КЛАСС</h3>
-				<p class="abs" style="left: 25px; top: 85px;">По свечеварению для двоих</p>
+				<h3 class="abs" style="left: 9.5%; top: 10%;">МАСТЕР-КЛАСС</h3>
+				<p class="abs" style="left: 10%; top: 33%;">По свечеварению для двоих</p>
 			</div>
 			<div>
-				<p class="abs" style="left: 200px; top: 180px;">Парк Галицкого</p>
+				<p class="abs" style="right: 10%; bottom: 10%;">Парк Галицкого</p>
 			</div>
+		</div>
+		
+		<div class="button-container">
+			<add-to-calendar-button
+				name="Мастер-класс по свечеварению"
+				description="Приглашаю на мастер-класс по свечеварению для двоих в Парке Галицкого"
+				startDate="2026-06-15"
+				startTime="18:00"
+				endTime="21:00"
+				location="Парк Галицкого, Краснодар"
+				options="['Apple','Google','iCal']"
+				timeZone="Europe/Moscow"
+				trigger="click"
+				label="📅 Добавить в календарь"
+				listStyle="modal"
+				hideCheckbox
+				buttonsList="false"
+			></add-to-calendar-button>
 		</div>
 		
 	</div>
