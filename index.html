@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Открытка</title>
-	<script src="https://cdn.jsdelivr.net/npm/add-to-calendar-button@2.13.5" async defer></script>
     <style>
 		
 		/* Сброс стандартных отступов */
@@ -203,9 +202,14 @@
 		</div>
 		
 		<div class="item square block-1">
+			<h3 class="abs" style="left: 10%; top: 10%;">МЕСТО</h3>
+			<p class="abs" style="left: 12%; top: 33%;">ВСТРЕЧИ</p>
 		</div>
 		
 		<div class="item square block-2">
+			<h3 class="abs" style="left: 10%; top: 10%;">ЛЕНТА</h3>
+			<p class="abs" style="left: 12%; top: 33%;">МАГАЗИН</p>
+			<p class="abs" style="left: 12%; bottom: 10%;"></p>
 		</div>
 		
 		<div class="item full-width music-widget">
@@ -222,19 +226,10 @@
 	
 <script>
 
-	document.getElementById('addToCalendarBtn').addEventListener('click', function() {
-		atcb_action({
-			name: "Свидание",
-			description: "Приглашаю в ресторан Ryotei в Парке Галицкого",
-			startDate: "2026-06-10",
-			startTime: "18:00",
-			endTime: "21:00",
-			location: "Парк Галицкого, Краснодар",
-			optionsIOS="['Apple']"
-			optionsMobile="['Google']"
-			timeZone: "Europe/Moscow",
-		}, this);
-	});
+    document.getElementById('addToCalendarBtn').addEventListener('click', function() {
+        const url = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent('Свидание')}&details=${encodeURIComponent('Приглашаю в ресторан Ryotei в Парке Галицкого')}&dates=20260610T180000/20260610T210000&location=${encodeURIComponent('Парк Галицкого, Краснодар')}`;
+        window.open(url, '_blank');
+    });
 	
 </script>
 </body>
