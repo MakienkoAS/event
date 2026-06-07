@@ -2,7 +2,6 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-	<meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Открытка</title>
 	<script src="https://cdn.jsdelivr.net/npm/add-to-calendar-button@2.13.5" async defer></script>
@@ -225,13 +224,14 @@
 
 	document.getElementById('addToCalendarBtn').addEventListener('click', function() {
 		atcb_action({
-			name: "Мастер-класс по свечеварению",
-			description: "Приглашаю на мастер-класс по свечеварению для двоих в Парке Галицкого",
-			startDate: "2026-06-15",
+			name: "Свидание",
+			description: "Приглашаю в ресторан Ryotei в Парке Галицкого",
+			startDate: "2026-06-10",
 			startTime: "18:00",
 			endTime: "21:00",
 			location: "Парк Галицкого, Краснодар",
-			options: ['Apple', 'Google'],
+			optionsMobile: ['Google'],
+            optionsIOS: ['Apple'],
 			timeZone: "Europe/Moscow",
 		}, this);
 	});
