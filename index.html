@@ -44,7 +44,7 @@
 		/* Квадрат */
 		.square {
 			aspect-ratio: 1 / 1;
-			border-radius: 24%;     /* Скругление краев */
+			border-radius: 20%;     /* Скругление краев */
 			container-type: inline-size;
 			container-name: square;
 		}
@@ -53,7 +53,7 @@
 		.full-width {
 			grid-column: span 2;
 			aspect-ratio: 2 / 1;
-			border-radius: 12%/24%;
+			border-radius: 10%/20%;
 			container-type: inline-size;
 			container-name: wide;
 		}
@@ -130,24 +130,32 @@
 			background: #ff6b6b;
 		}
 		
-		/* Блок для кнопки — добавляем отступы и центрирование */
-		.button-container {
-			grid-column: span 2;  /* Растягиваем на всю ширину сетки */
-			margin-top: 20px;      /* Отступ сверху */
-			display: flex;
-			justify-content: center;
-		}
-		
-		/* Настройка внешнего вида кнопки */
-		add-to-calendar-button {
-			--btn-background: #800B0E;        /* цвет фона (как у первого блока) */
-			--btn-background-hover: #a00f13;   /* цвет при наведении */
-			--btn-text: white;                 /* цвет текста */
-			--btn-border-radius: 50px;         /* скругление углов */
-			--btn-padding: 15px 30px;          /* внутренние отступы */
-			--btn-font-size: 1rem;             /* размер шрифта */
-			--btn-font-weight: 500;            /* насыщенность шрифта */
-		}
+		/* Контейнер кнопки внутри сетки */
+        .button-container {
+            grid-column: span 2;
+            margin-top: 0;
+            width: 100%;
+        }
+        
+        /* Кнопка */
+        .calendar-btn {
+            display: block;
+            width: 100%;
+			aspect-ratio: 5 / 1;
+            background: #800B0E;
+            color: white;
+            text-align: center;
+            font-family: system-ui, -apple-system, sans-serif;
+            font-size: 3cqw;
+			font-weight: 500;
+            border: none;
+            border-radius: 10%/50%;
+            cursor: pointer;
+        }
+        
+        .calendar-btn:hover {
+            background: #a00f13;
+        }
 		
     </style>
 </head>
@@ -156,18 +164,18 @@
 		
 		<div class="item square block-1">
 			<h3 class="abs text-1" style="left: 10%; top: 10%;">10 MAY</h3>
-			<p class="abs text-1" style="left: 10%; bottom: 10%;">15 июня 2026</p>
+			<p class="abs text-1" style="left: 12%; bottom: 10%;">15 июня 2026</p>
 		</div>
 		
 		<div class="item square">
 			<h3 class="abs" style="left: 10%; top: 10%;">ВРЕМЯ</h3>
-			<p class="abs" style="left: 10%; bottom: 10%;">Приглашение <br> на свидание</p>
+			<p class="abs" style="left: 12%; bottom: 10%;">Приглашение <br> на свидание</p>
 		</div>
 		
 		<div class="item full-width">
 			<div>
-				<h3 class="abs" style="left: 9.5%; top: 10%;">МАСТЕР-КЛАСС</h3>
-				<p class="abs" style="left: 10%; top: 33%;">По свечеварению для двоих</p>
+				<h3 class="abs" style="left: 8%; top: 10%;">МАСТЕР-КЛАСС</h3>
+				<p class="abs" style="left: 8.5%; top: 33%;">По свечеварению для двоих</p>
 			</div>
 			<div>
 				<p class="abs" style="right: 10%; bottom: 10%;">Парк Галицкого</p>
@@ -175,25 +183,28 @@
 		</div>
 		
 		<div class="button-container">
-			<add-to-calendar-button
-				name="Мастер-класс по свечеварению"
-				description="Приглашаю на мастер-класс по свечеварению для двоих в Парке Галицкого"
-				startDate="2026-06-15"
-				startTime="18:00"
-				endTime="21:00"
-				location="Парк Галицкого, Краснодар"
-				options="['Apple','Google']"
-				optionsIOS="['Apple']"
-				optionsMobile="['Google']"
-				timeZone="Europe/Moscow"
-				trigger="click"
-				label="📅 Добавить в календарь"
-				listStyle="modal"
-				hideCheckbox
-				buttonsList="false"
-			></add-to-calendar-button>
-		</div>
+            <button class="calendar-btn" id="addToCalendarBtn">
+                Добавить в календарь
+            </button>
+        </div>
 		
 	</div>
+	
+<script>
+
+	document.getElementById('addToCalendarBtn').addEventListener('click', function() {
+		atcb_action({
+			name: "Мастер-класс по свечеварению",
+			description: "Приглашаю на мастер-класс по свечеварению для двоих в Парке Галицкого",
+			startDate: "2026-06-15",
+			startTime: "18:00",
+			endTime: "21:00",
+			location: "Парк Галицкого, Краснодар",
+			options: ['Apple', 'Google'],
+			timeZone: "Europe/Moscow",
+		}, this);
+	});
+	
+</script>
 </body>
 </html>
